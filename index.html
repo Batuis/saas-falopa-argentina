@@ -253,6 +253,13 @@
         .cat-kioscos { background: #5a5027; color: #ffe699; }
         .cat-farmacias { background: #275a3a; color: #99ffb3; }
         .cat-lavanderia { background: #4a275a; color: #d699ff; }
+        .cat-juridicos { background: #2a4a5a; color: #99d4ff; }
+        .cat-opticas { background: #5a2a4a; color: #ff99cc; }
+        .cat-canchas { background: #3a5a2a; color: #b3ff99; }
+        .cat-academias { background: #4a3a5a; color: #cc99ff; }
+        .cat-jardines { background: #5a4a2a; color: #ffcc99; }
+        .cat-funerarias { background: #3a3a4a; color: #9999ff; }
+        .cat-petshop { background: #4a5a3a; color: #ccff99; }
         .cat-otros { background: #3a3a3a; color: #ccc; }
 
         .complexity-badge, .tier-badge {
@@ -649,8 +656,9 @@
 
         <!-- Tabs -->
         <div class="tabs">
-            <button class="tab-btn active" data-tab="general">SaaS FALOPA (68)</button>
+            <button class="tab-btn active" data-tab="general">SaaS FALOPA (95+)</button>
             <button class="tab-btn" data-tab="gastro">Software Gastronómico CABA</button>
+            <button class="tab-btn" data-tab="replicar">🔧 Replicables con Claude</button>
         </div>
 
         <!-- Tab 1: General SaaS -->
@@ -658,11 +666,11 @@
             <!-- Stats -->
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">68</div>
+                    <div class="stat-number">95+</div>
                     <div class="stat-label">SaaS Falopa Analizados</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">16</div>
+                    <div class="stat-number">24</div>
                     <div class="stat-label">Categorías/Nichos</div>
                 </div>
                 <div class="stat-card">
@@ -670,13 +678,13 @@
                     <div class="stat-label">USD/mes (promedio)</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">75%</div>
+                    <div class="stat-number">80%</div>
                     <div class="stat-label">Complejidad Baja-Media</div>
                 </div>
             </div>
 
             <!-- Charts -->
-            <h2 class="section-title">Distribución por Categoría (Top 10)</h2>
+            <h2 class="section-title">Distribución por Categoría (Top 12)</h2>
             <div class="charts-grid">
                 <div class="chart-card">
                     <h3 class="chart-title">SaaS por Nicho</h3>
@@ -700,33 +708,45 @@
                             </div>
                         </div>
                         <div class="bar-item">
-                            <span class="bar-label">Inmobiliarias</span>
+                            <span class="bar-label">Jurídicos</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 38%; background: linear-gradient(90deg, #2980b9, #3498db);">5</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Belleza/Spa</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 31%; background: linear-gradient(90deg, #e91e63, #c2185b);">4</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Ópticas</span>
                             <div class="bar-container">
                                 <div class="bar" style="width: 31%; background: linear-gradient(90deg, #9b59b6, #8e44ad);">4</div>
                             </div>
                         </div>
                         <div class="bar-item">
-                            <span class="bar-label">Kioscos/POS</span>
+                            <span class="bar-label">Pet Shops</span>
                             <div class="bar-container">
                                 <div class="bar" style="width: 31%; background: linear-gradient(90deg, #f39c12, #d68910);">4</div>
                             </div>
                         </div>
                         <div class="bar-item">
-                            <span class="bar-label">Veterinarias</span>
+                            <span class="bar-label">Canchas</span>
                             <div class="bar-container">
-                                <div class="bar" style="width: 23%; background: linear-gradient(90deg, #1abc9c, #16a085);">3</div>
+                                <div class="bar" style="width: 31%; background: linear-gradient(90deg, #1abc9c, #16a085);">4</div>
                             </div>
                         </div>
                         <div class="bar-item">
-                            <span class="bar-label">Gimnasios</span>
+                            <span class="bar-label">Academias</span>
                             <div class="bar-container">
-                                <div class="bar" style="width: 23%; background: linear-gradient(90deg, #e67e22, #d35400);">3</div>
+                                <div class="bar" style="width: 31%; background: linear-gradient(90deg, #e67e22, #d35400);">4</div>
                             </div>
                         </div>
                         <div class="bar-item">
-                            <span class="bar-label">Turnos/Citas</span>
+                            <span class="bar-label">Jardines</span>
                             <div class="bar-container">
-                                <div class="bar" style="width: 23%; background: linear-gradient(90deg, #00b894, #00cec9);">3</div>
+                                <div class="bar" style="width: 31%; background: linear-gradient(90deg, #00b894, #00cec9);">4</div>
                             </div>
                         </div>
                     </div>
@@ -868,7 +888,7 @@
             <h2 class="section-title">Listado Completo de Empresas</h2>
             <div class="filters">
                 <input type="text" class="search-box" id="searchBox" placeholder="Buscar empresa o categoría...">
-                <button class="filter-btn active" data-filter="all">Todas (68)</button>
+                <button class="filter-btn active" data-filter="all">Todas (95+)</button>
                 <button class="filter-btn" data-filter="facturacion">Facturación</button>
                 <button class="filter-btn" data-filter="turnos">Turnos</button>
                 <button class="filter-btn" data-filter="cobranzas">Cobranzas</button>
@@ -877,13 +897,20 @@
                 <button class="filter-btn" data-filter="gimnasios">Gimnasios</button>
                 <button class="filter-btn" data-filter="inmobiliarias">Inmobiliarias</button>
                 <button class="filter-btn" data-filter="talleres">Talleres</button>
-                <button class="filter-btn" data-filter="belleza">Belleza</button>
+                <button class="filter-btn" data-filter="belleza">Belleza/Spa</button>
                 <button class="filter-btn" data-filter="medicos">Médicos</button>
                 <button class="filter-btn" data-filter="contables">Contables</button>
                 <button class="filter-btn" data-filter="kioscos">Kioscos</button>
                 <button class="filter-btn" data-filter="farmacias">Farmacias</button>
                 <button class="filter-btn" data-filter="gastronomico">Gastronómico</button>
                 <button class="filter-btn" data-filter="erp">ERP</button>
+                <button class="filter-btn" data-filter="juridicos">Jurídicos</button>
+                <button class="filter-btn" data-filter="opticas">Ópticas</button>
+                <button class="filter-btn" data-filter="canchas">Canchas</button>
+                <button class="filter-btn" data-filter="academias">Academias</button>
+                <button class="filter-btn" data-filter="jardines">Jardines</button>
+                <button class="filter-btn" data-filter="funerarias">Funerarias</button>
+                <button class="filter-btn" data-filter="petshop">Pet Shop</button>
             </div>
 
             <div class="table-container">
@@ -1229,6 +1256,250 @@
             </div>
         </div>
 
+        <!-- Tab 3: Replicables con Claude Code -->
+        <div id="replicar" class="tab-content">
+            <!-- Stats Replicabilidad -->
+            <div class="stats-grid">
+                <div class="stat-card highlight">
+                    <div class="stat-number green">45+</div>
+                    <div class="stat-label">SaaS replicables en días/semanas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$5-50</div>
+                    <div class="stat-label">USD/mes target por usuario</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number green">80%</div>
+                    <div class="stat-label">Son CRUD + integraciones</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number orange">~1 sem</div>
+                    <div class="stat-label">Tiempo promedio MVP</div>
+                </div>
+            </div>
+
+            <!-- Conceptos Micro-SaaS -->
+            <div class="info-box">
+                <h4>¿Qué es un Micro-SaaS "Falopa"?</h4>
+                <p>Un Micro-SaaS "falopa" es un software simple que:</p>
+                <ul>
+                    <li><strong>Resuelve UN problema específico</strong> para un nicho definido</li>
+                    <li><strong>80% es CRUD</strong> (Create, Read, Update, Delete) + algunas integraciones</li>
+                    <li><strong>Target $5K-$30K MRR</strong> (Monthly Recurring Revenue) para 1-2 personas</li>
+                    <li><strong>Sin VC, sin empleados</strong> - ideal para indie hackers</li>
+                    <li><strong>El dolor es el multiplicador de precio</strong> - cuanto más molesto el problema, más pagan</li>
+                </ul>
+            </div>
+
+            <!-- Categorías por tiempo de desarrollo -->
+            <h2 class="section-title" style="border-bottom-color: #27ae60;">Ideas Replicables por Tiempo de Desarrollo</h2>
+
+            <div class="comparison-grid">
+                <!-- 1-3 días -->
+                <div class="comparison-card" style="border-color: #27ae60;">
+                    <div class="comparison-header">
+                        <div class="comparison-logo" style="background: linear-gradient(135deg, #27ae60, #1e8449);">1-3</div>
+                        <div class="comparison-title">
+                            <h3>1-3 días con Claude Code</h3>
+                            <p>MVPs funcionales básicos</p>
+                        </div>
+                    </div>
+                    <div class="comparison-features" style="font-size: 0.9rem;">
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #7dffb3;">Carta digital QR</strong><br>
+                            <span style="color: #888;">Menú online actualizable, sin app para cliente</span>
+                        </div>
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #7dffb3;">Bot facturación WhatsApp</strong><br>
+                            <span style="color: #888;">Monotributistas envían datos, reciben factura PDF</span>
+                        </div>
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #7dffb3;">Dashboard ventas simple</strong><br>
+                            <span style="color: #888;">Upload Excel → gráficos de ventas</span>
+                        </div>
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #7dffb3;">Sistema turnos básico</strong><br>
+                            <span style="color: #888;">Calendario + confirmación email/WhatsApp</span>
+                        </div>
+                        <div style="padding: 8px 0;">
+                            <strong style="color: #7dffb3;">Landing + waitlist</strong><br>
+                            <span style="color: #888;">Para validar idea antes de construir</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1 semana -->
+                <div class="comparison-card" style="border-color: #f39c12;">
+                    <div class="comparison-header">
+                        <div class="comparison-logo" style="background: linear-gradient(135deg, #f39c12, #d68910);">1w</div>
+                        <div class="comparison-title">
+                            <h3>~1 semana con Claude Code</h3>
+                            <p>SaaS funcionales con auth + pagos</p>
+                        </div>
+                    </div>
+                    <div class="comparison-features" style="font-size: 0.9rem;">
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #ffd699;">Gestión turnos para X nicho</strong><br>
+                            <span style="color: #888;">Peluquerías, ópticas, consultorios - $15-30/mes</span>
+                        </div>
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #ffd699;">Sistema stock + alertas</strong><br>
+                            <span style="color: #888;">Kioscos, farmacias, pet shops - $20-40/mes</span>
+                        </div>
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #ffd699;">CRM simple para nicho</strong><br>
+                            <span style="color: #888;">Inmobiliarias, abogados, contadores - $25-50/mes</span>
+                        </div>
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #ffd699;">Reservas canchas deportivas</strong><br>
+                            <span style="color: #888;">Fútbol, padel, tenis - freemium + 5% txn</span>
+                        </div>
+                        <div style="padding: 8px 0;">
+                            <strong style="color: #ffd699;">Mapas colaborativos (tipo Shmeppy)</strong><br>
+                            <span style="color: #888;">RPG, educación, planning - $5/mes GM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2-4 semanas -->
+                <div class="comparison-card" style="border-color: #e74c3c;">
+                    <div class="comparison-header">
+                        <div class="comparison-logo" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">2-4w</div>
+                        <div class="comparison-title">
+                            <h3>2-4 semanas con Claude Code</h3>
+                            <p>SaaS completos multi-feature</p>
+                        </div>
+                    </div>
+                    <div class="comparison-features" style="font-size: 0.9rem;">
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #ffb3b3;">POS gastronómico básico</strong><br>
+                            <span style="color: #888;">Comandas, mesas, caja - $30-60/mes</span>
+                        </div>
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #ffb3b3;">Software gestión óptica</strong><br>
+                            <span style="color: #888;">Recetas, stock lentes, turnos - $40-80/mes</span>
+                        </div>
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #ffb3b3;">Sistema estudio jurídico</strong><br>
+                            <span style="color: #888;">Expedientes, plazos, facturación - $50-100/mes</span>
+                        </div>
+                        <div style="padding: 8px 0; border-bottom: 1px solid #333;">
+                            <strong style="color: #ffb3b3;">Gestión gimnasio/box</strong><br>
+                            <span style="color: #888;">Socios, pagos, clases, acceso - $30-60/mes</span>
+                        </div>
+                        <div style="padding: 8px 0;">
+                            <strong style="color: #ffb3b3;">Integración AFIP básica</strong><br>
+                            <span style="color: #888;">Factura electrónica A/B/C - addon $10-20/mes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nichos más "falopa" -->
+            <h2 class="section-title orange">Nichos más "Falopa" (Oportunidades Detectadas)</h2>
+
+            <div class="models-grid">
+                <div class="model-card">
+                    <h3 class="model-title" style="color: #27ae60;">Canchas Deportivas</h3>
+                    <p class="model-description">Book Padel es GRATIS. ATC cobra fee mensual. Hay espacio para solución simple con mejor UX.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Calendario reservas</span>
+                        <span class="example-tag">Pagos online</span>
+                        <span class="example-tag">WhatsApp notif</span>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <h3 class="model-title" style="color: #27ae60;">Ópticas Argentina</h3>
+                    <p class="model-description">Opticus, Visionsoft son las opciones. Nicho específico, pocos competidores, alta especialización.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Recetas oftalmológicas</span>
+                        <span class="example-tag">Stock lentes</span>
+                        <span class="example-tag">AFIP integrado</span>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <h3 class="model-title" style="color: #27ae60;">Estudios Jurídicos</h3>
+                    <p class="model-description">Estudio360, IUSNET compiten. Muchos estudios chicos sin software. Oportunidad en simplificar.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Expedientes</span>
+                        <span class="example-tag">Plazos/alertas</span>
+                        <span class="example-tag">Horas facturables</span>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <h3 class="model-title" style="color: #27ae60;">Pet Shops</h3>
+                    <p class="model-description">Petflow es gratis pero básico. SIKI es caro. Nicho en crecimiento con poco software local.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Stock alimentos</span>
+                        <span class="example-tag">Clientes/mascotas</span>
+                        <span class="example-tag">Alertas vencimiento</span>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <h3 class="model-title" style="color: #f39c12;">Jardines Maternales</h3>
+                    <p class="model-description">Mercado dominado por software internacional. Oportunidad: versión simple en español para ARG.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Fotos a padres</span>
+                        <span class="example-tag">Asistencia</span>
+                        <span class="example-tag">Pagos cuotas</span>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <h3 class="model-title" style="color: #f39c12;">Funerarias</h3>
+                    <p class="model-description">Nicho sensible pero con necesidad real. Pocos competidores locales. Alta barrera emocional de entrada.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Gestión servicios</span>
+                        <span class="example-tag">Documentación</span>
+                        <span class="example-tag">Agenda capillas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stack recomendado -->
+            <div class="opportunities" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-color: #667eea;">
+                <h2 class="opp-title" style="color: #667eea;">Stack Recomendado para Micro-SaaS 2025</h2>
+                <div class="opp-grid">
+                    <div class="opp-item">
+                        <h4 style="color: #667eea;">Frontend</h4>
+                        <p>Next.js 14+ / React + TailwindCSS. O directamente HTML+Alpine.js para máxima simplicidad.</p>
+                    </div>
+                    <div class="opp-item">
+                        <h4 style="color: #667eea;">Backend</h4>
+                        <p>Supabase (auth + DB + storage gratis). O Firebase. Evitar complejidad innecesaria.</p>
+                    </div>
+                    <div class="opp-item">
+                        <h4 style="color: #667eea;">Pagos</h4>
+                        <p>MercadoPago (ARG) o Stripe (internacional). Ambos tienen APIs simples.</p>
+                    </div>
+                    <div class="opp-item">
+                        <h4 style="color: #667eea;">Deploy</h4>
+                        <p>Vercel (gratis hasta cierto punto) o Railway. Un click deploy.</p>
+                    </div>
+                    <div class="opp-item">
+                        <h4 style="color: #667eea;">Notificaciones</h4>
+                        <p>Twilio/WhatsApp Business API para Argentina. Email con Resend o Postmark.</p>
+                    </div>
+                    <div class="opp-item">
+                        <h4 style="color: #667eea;">AI Features</h4>
+                        <p>Claude API o GPT-4 para features diferenciadores. Ahora es barato.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consejos finales -->
+            <div class="info-box warning">
+                <h4>Consejos para Validar antes de Construir</h4>
+                <ul>
+                    <li><strong>No construyas sin validar</strong> - Primero landing + waitlist, después código</li>
+                    <li><strong>El dolor es el precio</strong> - Cuanto más molesto el problema, más pagan por resolverlo</li>
+                    <li><strong>Nicho > General</strong> - "Turnos para ópticas" cobra 3x más que "Turnos genéricos"</li>
+                    <li><strong>Habla con 10 potenciales clientes</strong> - Si no los encontrás, el nicho no existe</li>
+                    <li><strong>Copia lo que funciona</strong> - No reinventes, mejora lo existente para tu mercado</li>
+                    <li><strong>Cobra desde el día 1</strong> - Si no pagan por el MVP, no pagarán por el producto final</li>
+                </ul>
+            </div>
+        </div>
+
         <footer>
             <p>Análisis generado con Claude Code | Datos actualizados a Enero 2026</p>
         </footer>
@@ -1360,7 +1631,54 @@
             { name: "Atomic Kitchens", category: "otros", categoryLabel: "Dark Kitchen/Franquicia", model: "Royalty 8%", price: "$0 entrada + 8% fact.", complexity: "baja", instagram: "@atomic.kitchens", web: "atomickitchens.tech" },
             { name: "Krauser", category: "otros", categoryLabel: "Desarrollo Software", model: "Servicios a medida", price: "Por proyecto", complexity: "alta", instagram: "@krauser2021k", web: "krauser.com.ar" },
             { name: "Referencia Gastronómica", category: "otros", categoryLabel: "RRHH/Bolsa trabajo", model: "Suscripción", price: "-", complexity: "baja", instagram: "@referenciagastronomica", web: "referenciagastronomica.com" },
-            { name: "Asuntos Digitales", category: "otros", categoryLabel: "Marketing/Servicios", model: "Servicios", price: "-", complexity: "n/a", instagram: "@asuntosdigitales", web: "-" }
+            { name: "Asuntos Digitales", category: "otros", categoryLabel: "Marketing/Servicios", model: "Servicios", price: "-", complexity: "n/a", instagram: "@asuntosdigitales", web: "-" },
+
+            // === ESTUDIOS JURÍDICOS ===
+            { name: "Estudio360", category: "juridicos", categoryLabel: "Estudios Jurídicos", model: "Suscripción mensual", price: "ARS 12.000/usuario extra", complexity: "media", instagram: "-", web: "estudio360.com.ar" },
+            { name: "IUSNET", category: "juridicos", categoryLabel: "Estudios Jurídicos", model: "Suscripción mensual", price: "Precios en ARS (prueba gratis)", complexity: "media", instagram: "-", web: "iusnet.com.ar" },
+            { name: "MetaJuridico", category: "juridicos", categoryLabel: "Estudios Jurídicos", model: "Suscripción mensual", price: "Precio-calidad insuperable", complexity: "media", instagram: "-", web: "metajuridico.com" },
+            { name: "SEJ", category: "juridicos", categoryLabel: "Estudios Jurídicos", model: "Suscripción mensual", price: "Unipersonal a grandes estudios", complexity: "media", instagram: "-", web: "sej.com.ar" },
+            { name: "DRETLAW", category: "juridicos", categoryLabel: "Estudios Jurídicos", model: "Suscripción nube", price: "Con app móvil", complexity: "baja", instagram: "-", web: "dretlaw.com.ar" },
+
+            // === ÓPTICAS ===
+            { name: "Opticus", category: "opticas", categoryLabel: "Ópticas", model: "Suscripción mensual", price: "30 días gratis, precio único", complexity: "baja", instagram: "-", web: "opticus.com.ar" },
+            { name: "Visionsoft", category: "opticas", categoryLabel: "Ópticas", model: "Suscripción mensual", price: "+$25 factura electrónica", complexity: "baja", instagram: "-", web: "visionsoft.com.ar" },
+            { name: "Optix", category: "opticas", categoryLabel: "Ópticas", model: "Suscripción nube", price: "Multi-sucursal", complexity: "baja", instagram: "-", web: "optix.ar" },
+            { name: "Ocusis", category: "opticas", categoryLabel: "Ópticas", model: "Suscripción nube", price: "Económico y fácil", complexity: "baja", instagram: "-", web: "ocusis.com" },
+
+            // === CANCHAS DEPORTIVAS ===
+            { name: "AlquilaTuCancha", category: "canchas", categoryLabel: "Canchas Deportivas", model: "Suscripción mensual", price: "3 planes (base/std/full)", complexity: "baja", instagram: "-", web: "alquilatucancha.com" },
+            { name: "Book Padel", category: "canchas", categoryLabel: "Canchas Deportivas", model: "Freemium", price: "GRATIS para siempre", complexity: "baja", instagram: "-", web: "book.granpadel.com.ar" },
+            { name: "Donde Juego", category: "canchas", categoryLabel: "Canchas Deportivas", model: "Marketplace", price: "Comisión por reserva", complexity: "baja", instagram: "-", web: "dondejuegoapp.com" },
+            { name: "Canchero", category: "canchas", categoryLabel: "Canchas Deportivas", model: "Suscripción mensual", price: "Solución completa", complexity: "media", instagram: "-", web: "canchero.ar" },
+
+            // === ACADEMIAS DE IDIOMAS ===
+            { name: "OfiELE", category: "academias", categoryLabel: "Academias Idiomas", model: "Suscripción mensual", price: "18.000+ instalaciones LATAM", complexity: "media", instagram: "-", web: "ofiele.es" },
+            { name: "Acadesoft", category: "academias", categoryLabel: "Academias Idiomas", model: "Suscripción mensual", price: "15 años experiencia", complexity: "media", instagram: "-", web: "acadesoft.com" },
+            { name: "Argos Galáica", category: "academias", categoryLabel: "Academias General", model: "Suscripción modular", price: "Desde €26/mes", complexity: "baja", instagram: "-", web: "argosgalaica.com" },
+            { name: "Englody", category: "academias", categoryLabel: "Academias Inglés", model: "Suscripción mensual", price: "Plataforma integral", complexity: "media", instagram: "-", web: "englody.com" },
+
+            // === JARDINES MATERNALES ===
+            { name: "KidReports", category: "jardines", categoryLabel: "Jardines/Guarderías", model: "Suscripción mensual", price: "Fotos/videos para padres", complexity: "baja", instagram: "-", web: "kidreports.com" },
+            { name: "Procare", category: "jardines", categoryLabel: "Jardines/Guarderías", model: "Suscripción mensual", price: "Gestión integral", complexity: "media", instagram: "-", web: "procaresoftware.com" },
+            { name: "SmartCare", category: "jardines", categoryLabel: "Jardines/Guarderías", model: "Suscripción nube", price: "Tiempo real padres-maestros", complexity: "baja", instagram: "-", web: "smartcare.com" },
+            { name: "StoriiCare", category: "jardines", categoryLabel: "Jardines/Guarderías", model: "Suscripción nube", price: "Todo en uno", complexity: "media", instagram: "-", web: "storiicare.com" },
+
+            // === FUNERARIAS ===
+            { name: "SFUN", category: "funerarias", categoryLabel: "Funerarias", model: "Suscripción mensual", price: "El más completo", complexity: "media", instagram: "-", web: "-" },
+            { name: "ASISFUN", category: "funerarias", categoryLabel: "Funerarias", model: "Suscripción mensual", price: "Admin + operativo", complexity: "media", instagram: "-", web: "-" },
+            { name: "SISFUN", category: "funerarias", categoryLabel: "Funerarias", model: "Suscripción nube", price: "Fácil y asequible", complexity: "baja", instagram: "-", web: "-" },
+            { name: "Gularissoft Funeraria", category: "funerarias", categoryLabel: "Funerarias", model: "ERP especializado", price: "Gestión integral", complexity: "media", instagram: "-", web: "gularissoft.com" },
+
+            // === PET SHOPS ===
+            { name: "SIKI Mascotas", category: "petshop", categoryLabel: "Pet Shops", model: "Suscripción mensual", price: "Nube o local", complexity: "baja", instagram: "-", web: "sikisoftware.com" },
+            { name: "dodoZooft", category: "petshop", categoryLabel: "Pet Shops", model: "Suscripción modular", price: "Adaptable al tamaño", complexity: "baja", instagram: "-", web: "dodozooft.com" },
+            { name: "Petflow", category: "petshop", categoryLabel: "Pet Shops", model: "Freemium", price: "GRATIS", complexity: "baja", instagram: "-", web: "play.google.com" },
+            { name: "t-Mascotas", category: "petshop", categoryLabel: "Pet Shops", model: "Suscripción mensual", price: "ERP completo", complexity: "media", instagram: "-", web: "tejesoft.com" },
+
+            // === BELLEZA / SPA (adicionales) ===
+            { name: "GDS Spa", category: "belleza", categoryLabel: "Spa/Estética", model: "Licencia", price: "Demo gratis", complexity: "baja", instagram: "-", web: "gdssistemas.com.ar" },
+            { name: "Grandi SPA", category: "belleza", categoryLabel: "Spa/Estética", model: "Suscripción mensual", price: "Entre Ríos, Argentina", complexity: "media", instagram: "-", web: "grandiyasociados.com" }
         ];
 
         // Gastro software data
@@ -1399,6 +1717,13 @@
                 'kioscos': 'cat-kioscos',
                 'farmacias': 'cat-farmacias',
                 'lavanderia': 'cat-lavanderia',
+                'juridicos': 'cat-juridicos',
+                'opticas': 'cat-opticas',
+                'canchas': 'cat-canchas',
+                'academias': 'cat-academias',
+                'jardines': 'cat-jardines',
+                'funerarias': 'cat-funerarias',
+                'petshop': 'cat-petshop',
                 'otros': 'cat-otros'
             };
             return classes[category] || 'cat-otros';
