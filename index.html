@@ -260,6 +260,27 @@
         .cat-jardines { background: #5a4a2a; color: #ffcc99; }
         .cat-funerarias { background: #3a3a4a; color: #9999ff; }
         .cat-petshop { background: #4a5a3a; color: #ccff99; }
+        .cat-psicologos { background: #5a3a5a; color: #e699ff; }
+        .cat-nutricionistas { background: #3a5a4a; color: #99ffcc; }
+        .cat-cervecerias { background: #5a4a27; color: #ffd699; }
+        .cat-carnicerias { background: #5a2727; color: #ff9999; }
+        .cat-heladerias { background: #27505a; color: #99e6ff; }
+        .cat-panaderias { background: #5a4827; color: #ffcc99; }
+        .cat-pizzerias { background: #5a3527; color: #ffb899; }
+        .cat-ferreterias { background: #4a4a3a; color: #e6e6cc; }
+        .cat-kinesiologos { background: #275a4a; color: #99ffcc; }
+        .cat-paseadores { background: #4a5a27; color: #ccff99; }
+        .cat-limpieza { background: #27505a; color: #99e6ff; }
+        .cat-entrenadores { background: #5a3a27; color: #ffb399; }
+        .cat-fotografos { background: #3a275a; color: #b399ff; }
+        .cat-servicios { background: #5a5027; color: #ffe699; }
+        .cat-fletes { background: #27415a; color: #99c2ff; }
+        .cat-dieteticas { background: #3a5a27; color: #b3ff99; }
+        .cat-adultos { background: #5a4a3a; color: #ffd9b3; }
+        .cat-tatuadores { background: #4a275a; color: #cc99ff; }
+        .cat-musicos { background: #5a2750; color: #ff99cc; }
+        .cat-coaches { background: #275a5a; color: #99ffff; }
+        .cat-microtools { background: #3a5a5a; color: #99ffff; }
         .cat-otros { background: #3a3a3a; color: #ccc; }
 
         .complexity-badge, .tier-badge {
@@ -656,7 +677,7 @@
 
         <!-- Tabs -->
         <div class="tabs">
-            <button class="tab-btn active" data-tab="general">SaaS FALOPA (95+)</button>
+            <button class="tab-btn active" data-tab="general">SaaS FALOPA (130+)</button>
             <button class="tab-btn" data-tab="gastro">Software Gastronómico CABA</button>
             <button class="tab-btn" data-tab="replicar">🔧 Replicables con Claude</button>
         </div>
@@ -666,19 +687,19 @@
             <!-- Stats -->
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">95+</div>
+                    <div class="stat-number">130+</div>
                     <div class="stat-label">SaaS Falopa Analizados</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">24</div>
+                    <div class="stat-number">45+</div>
                     <div class="stat-label">Categorías/Nichos</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">$15-100</div>
+                    <div class="stat-number">$5-100</div>
                     <div class="stat-label">USD/mes (promedio)</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">80%</div>
+                    <div class="stat-number">85%</div>
                     <div class="stat-label">Complejidad Baja-Media</div>
                 </div>
             </div>
@@ -888,29 +909,30 @@
             <h2 class="section-title">Listado Completo de Empresas</h2>
             <div class="filters">
                 <input type="text" class="search-box" id="searchBox" placeholder="Buscar empresa o categoría...">
-                <button class="filter-btn active" data-filter="all">Todas (95+)</button>
+                <button class="filter-btn active" data-filter="all">Todas (130+)</button>
                 <button class="filter-btn" data-filter="facturacion">Facturación</button>
-                <button class="filter-btn" data-filter="turnos">Turnos</button>
-                <button class="filter-btn" data-filter="cobranzas">Cobranzas</button>
-                <button class="filter-btn" data-filter="rrhh">RRHH</button>
-                <button class="filter-btn" data-filter="veterinarias">Veterinarias</button>
-                <button class="filter-btn" data-filter="gimnasios">Gimnasios</button>
-                <button class="filter-btn" data-filter="inmobiliarias">Inmobiliarias</button>
-                <button class="filter-btn" data-filter="talleres">Talleres</button>
-                <button class="filter-btn" data-filter="belleza">Belleza/Spa</button>
-                <button class="filter-btn" data-filter="medicos">Médicos</button>
-                <button class="filter-btn" data-filter="contables">Contables</button>
-                <button class="filter-btn" data-filter="kioscos">Kioscos</button>
-                <button class="filter-btn" data-filter="farmacias">Farmacias</button>
                 <button class="filter-btn" data-filter="gastronomico">Gastronómico</button>
                 <button class="filter-btn" data-filter="erp">ERP</button>
+                <button class="filter-btn" data-filter="turnos">Turnos</button>
+                <button class="filter-btn" data-filter="belleza">Belleza/Spa</button>
                 <button class="filter-btn" data-filter="juridicos">Jurídicos</button>
                 <button class="filter-btn" data-filter="opticas">Ópticas</button>
                 <button class="filter-btn" data-filter="canchas">Canchas</button>
-                <button class="filter-btn" data-filter="academias">Academias</button>
-                <button class="filter-btn" data-filter="jardines">Jardines</button>
-                <button class="filter-btn" data-filter="funerarias">Funerarias</button>
                 <button class="filter-btn" data-filter="petshop">Pet Shop</button>
+                <button class="filter-btn" data-filter="psicologos">Psicólogos</button>
+                <button class="filter-btn" data-filter="nutricionistas">Nutricionistas</button>
+                <button class="filter-btn" data-filter="kinesiologos">Kinesiólogos</button>
+                <button class="filter-btn" data-filter="fotografos">Fotógrafos</button>
+                <button class="filter-btn" data-filter="entrenadores">Entrenadores</button>
+                <button class="filter-btn" data-filter="tatuadores">Tatuadores</button>
+                <button class="filter-btn" data-filter="musicos">DJs/Músicos</button>
+                <button class="filter-btn" data-filter="coaches">Coaches</button>
+                <button class="filter-btn" data-filter="microtools">Micro-Tools</button>
+                <button class="filter-btn" data-filter="medicos">Médicos</button>
+                <button class="filter-btn" data-filter="gimnasios">Gimnasios</button>
+                <button class="filter-btn" data-filter="inmobiliarias">Inmobiliarias</button>
+                <button class="filter-btn" data-filter="veterinarias">Veterinarias</button>
+                <button class="filter-btn" data-filter="funerarias">Funerarias</button>
             </div>
 
             <div class="table-container">
@@ -1678,7 +1700,84 @@
 
             // === BELLEZA / SPA (adicionales) ===
             { name: "GDS Spa", category: "belleza", categoryLabel: "Spa/Estética", model: "Licencia", price: "Demo gratis", complexity: "baja", instagram: "-", web: "gdssistemas.com.ar" },
-            { name: "Grandi SPA", category: "belleza", categoryLabel: "Spa/Estética", model: "Suscripción mensual", price: "Entre Ríos, Argentina", complexity: "media", instagram: "-", web: "grandiyasociados.com" }
+            { name: "Grandi SPA", category: "belleza", categoryLabel: "Spa/Estética", model: "Suscripción mensual", price: "Entre Ríos, Argentina", complexity: "media", instagram: "-", web: "grandiyasociados.com" },
+
+            // === PSICÓLOGOS ===
+            { name: "Psicobit", category: "psicologos", categoryLabel: "Psicólogos", model: "Freemium", price: "Gratis + $59/WhatsApp", complexity: "media", instagram: "-", web: "psicobit.com" },
+            { name: "Sanabit", category: "psicologos", categoryLabel: "Psicólogos/Rehab", model: "Suscripción mensual", price: "Obras sociales incl.", complexity: "media", instagram: "-", web: "sanabit.net" },
+
+            // === NUTRICIONISTAS ===
+            { name: "Siscon", category: "nutricionistas", categoryLabel: "Nutricionistas", model: "Suscripción mensual", price: "En ARS", complexity: "media", instagram: "-", web: "siscon.com.ar" },
+            { name: "NutriSpot", category: "nutricionistas", categoryLabel: "Nutricionistas", model: "Suscripción mensual", price: "30 días gratis", complexity: "media", instagram: "-", web: "nutrispot.com.ar" },
+
+            // === CERVECERÍAS ARTESANALES ===
+            { name: "Gestión Cervecera", category: "cervecerias", categoryLabel: "Cervecerías Artesanales", model: "Suscripción mensual", price: "$2.300-3.100/mes", complexity: "alta", instagram: "-", web: "gestioncervecera.com" },
+
+            // === CARNICERÍAS ===
+            { name: "Facturalo Simple", category: "carnicerias", categoryLabel: "Carnicerías", model: "Suscripción mensual", price: "PyMEs Gualeguaychú", complexity: "baja", instagram: "-", web: "facturalosimple.com.ar" },
+            { name: "Dycam", category: "carnicerias", categoryLabel: "Carnicerías/Almacenes", model: "Software a medida", price: "Consultar", complexity: "media", instagram: "-", web: "dycam.com.ar" },
+
+            // === HELADERÍAS ===
+            { name: "Grandi Heladerías", category: "heladerias", categoryLabel: "Heladerías", model: "Suscripción mensual", price: "Paraná, Entre Ríos", complexity: "baja", instagram: "-", web: "grandiyasociados.com" },
+
+            // === PANADERÍAS ===
+            { name: "BCN Soft Panadería", category: "panaderias", categoryLabel: "Panaderías", model: "Licencia", price: "Demo gratis", complexity: "baja", instagram: "-", web: "bcnsoft.com.ar" },
+
+            // === PIZZERÍAS ===
+            { name: "BCNRESTO", category: "pizzerias", categoryLabel: "Pizzerías/Dark Kitchen", model: "Suscripción mensual", price: "Plan único", complexity: "media", instagram: "-", web: "bcnsoft.com.ar" },
+
+            // === FERRETERÍAS ===
+            { name: "Sistar Simple", category: "ferreterias", categoryLabel: "Ferreterías", model: "Suscripción mensual", price: "30 días gratis", complexity: "media", instagram: "-", web: "sistar.com.ar" },
+
+            // === KINESIÓLOGOS ===
+            { name: "TheraCloud", category: "kinesiologos", categoryLabel: "Kinesiólogos", model: "Suscripción mensual", price: "Con IA transcripción", complexity: "media", instagram: "-", web: "theracloud.ai" },
+            { name: "KinesioPlus", category: "kinesiologos", categoryLabel: "Kinesiólogos", model: "Software", price: "Descargable", complexity: "baja", instagram: "-", web: "kinesioplus.com.ar" },
+            { name: "Turna.app", category: "kinesiologos", categoryLabel: "Kinesiólogos/Fisio", model: "Suscripción mensual", price: "Automatiza agenda", complexity: "baja", instagram: "-", web: "turna.app" },
+
+            // === PASEADORES DE PERROS ===
+            { name: "PaseaPerros", category: "paseadores", categoryLabel: "Paseadores Perros", model: "Marketplace", price: "GRATIS", complexity: "baja", instagram: "-", web: "paseaperros.com.ar" },
+
+            // === LIMPIEZA DOMÉSTICA ===
+            { name: "Zolvers", category: "limpieza", categoryLabel: "Limpieza Doméstica", model: "Marketplace", price: "Alta AFIP incluida", complexity: "media", instagram: "-", web: "zolvers.com" },
+
+            // === ENTRENADORES PERSONALES ===
+            { name: "Harbiz", category: "entrenadores", categoryLabel: "Entrenadores", model: "Suscripción mensual", price: "Todo en uno", complexity: "media", instagram: "-", web: "harbiz.io" },
+            { name: "TrainerUp", category: "entrenadores", categoryLabel: "Entrenadores", model: "Freemium", price: "Gratis 5 usuarios", complexity: "baja", instagram: "-", web: "-" },
+
+            // === FOTÓGRAFOS ===
+            { name: "AdminPhoto", category: "fotografos", categoryLabel: "Fotógrafos", model: "Suscripción mensual", price: "Galerías + reservas", complexity: "media", instagram: "-", web: "adminphoto.com" },
+            { name: "Fotostudio", category: "fotografos", categoryLabel: "Fotógrafos", model: "Suscripción mensual", price: "CRM + contratos", complexity: "media", instagram: "-", web: "fotostudio.io" },
+
+            // === SERVICIOS HOGAR ===
+            { name: "Timbrit", category: "servicios", categoryLabel: "Plomeros/Electricistas", model: "Marketplace", price: "Chat 3 profesionales", complexity: "baja", instagram: "-", web: "timbrit.com.ar" },
+
+            // === MUDANZAS/FLETES ===
+            { name: "Fletalo", category: "fletes", categoryLabel: "Mudanzas/Fletes", model: "Marketplace", price: "500+ fleteros", complexity: "media", instagram: "-", web: "fletalo.com.ar" },
+
+            // === DIETÉTICAS ===
+            { name: "SM Soluciones", category: "dieteticas", categoryLabel: "Dietéticas", model: "Software gestión", price: "Usado por Vitalcer", complexity: "media", instagram: "-", web: "sm-soluciones.com" },
+
+            // === CUIDADO ADULTOS MAYORES ===
+            { name: "Cuidarlos", category: "adultos", categoryLabel: "Cuidado Adultos", model: "Marketplace", price: "Reconocida BID LAB", complexity: "media", instagram: "-", web: "cuidarlos.com" },
+
+            // === TATUADORES ===
+            { name: "Venue.ink", category: "tatuadores", categoryLabel: "Tatuadores", model: "Suscripción mensual", price: "$47-197 USD/mes", complexity: "media", instagram: "-", web: "venue.ink" },
+
+            // === DJs / MÚSICOS ===
+            { name: "DJ Intelligence", category: "musicos", categoryLabel: "DJs/Músicos", model: "Suscripción mensual", price: "$100+ USD/mes", complexity: "media", instagram: "-", web: "djintelligence.com" },
+            { name: "Cueup", category: "musicos", categoryLabel: "DJs/Músicos", model: "Marketplace", price: "Comisión booking", complexity: "baja", instagram: "-", web: "cueup.io" },
+
+            // === COACHES ===
+            { name: "CoachAccountable", category: "coaches", categoryLabel: "Coaches/Mentores", model: "Suscripción mensual", price: "$30-60 USD/mes", complexity: "media", instagram: "-", web: "coachaccountable.com" },
+            { name: "Simply.Coach", category: "coaches", categoryLabel: "Coaches/Mentores", model: "Suscripción mensual", price: "$30-70 USD/mes", complexity: "media", instagram: "-", web: "simply.coach" },
+
+            // === MICRO-TOOLS INTERNACIONALES ===
+            { name: "TweetDeleter", category: "microtools", categoryLabel: "Micro-Tool", model: "Suscripción mensual", price: "$4.99/mes - $75K MRR", complexity: "baja", instagram: "-", web: "tweetdeleter.com" },
+            { name: "Carrd", category: "microtools", categoryLabel: "Landing Pages", model: "Anual", price: "$9-49/año - $1M ARR", complexity: "baja", instagram: "-", web: "carrd.co" },
+            { name: "Buttondown", category: "microtools", categoryLabel: "Newsletter", model: "Suscripción mensual", price: "$9/mes - $15K MRR", complexity: "baja", instagram: "-", web: "buttondown.email" },
+            { name: "Testimonial.to", category: "microtools", categoryLabel: "Testimonios", model: "Suscripción mensual", price: "$20-50/mes", complexity: "baja", instagram: "-", web: "testimonial.to" },
+            { name: "Plausible", category: "microtools", categoryLabel: "Analytics", model: "Suscripción mensual", price: "$9/mes - Open source", complexity: "baja", instagram: "-", web: "plausible.io" },
+            { name: "Dub.co", category: "microtools", categoryLabel: "Acortador URLs", model: "Suscripción mensual", price: "$30/mes - Open source", complexity: "baja", instagram: "-", web: "dub.co" }
         ];
 
         // Gastro software data
@@ -1724,6 +1823,27 @@
                 'jardines': 'cat-jardines',
                 'funerarias': 'cat-funerarias',
                 'petshop': 'cat-petshop',
+                'psicologos': 'cat-psicologos',
+                'nutricionistas': 'cat-nutricionistas',
+                'cervecerias': 'cat-cervecerias',
+                'carnicerias': 'cat-carnicerias',
+                'heladerias': 'cat-heladerias',
+                'panaderias': 'cat-panaderias',
+                'pizzerias': 'cat-pizzerias',
+                'ferreterias': 'cat-ferreterias',
+                'kinesiologos': 'cat-kinesiologos',
+                'paseadores': 'cat-paseadores',
+                'limpieza': 'cat-limpieza',
+                'entrenadores': 'cat-entrenadores',
+                'fotografos': 'cat-fotografos',
+                'servicios': 'cat-servicios',
+                'fletes': 'cat-fletes',
+                'dieteticas': 'cat-dieteticas',
+                'adultos': 'cat-adultos',
+                'tatuadores': 'cat-tatuadores',
+                'musicos': 'cat-musicos',
+                'coaches': 'cat-coaches',
+                'microtools': 'cat-microtools',
                 'otros': 'cat-otros'
             };
             return classes[category] || 'cat-otros';
