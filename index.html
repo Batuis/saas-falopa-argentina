@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Argentina - Análisis de Mercado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0f0f0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0;
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            border: none;
+            background: transparent;
+            color: #888;
+            font-size: 1rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:hover {
+            color: #e0e0e0;
+        }
+
+        .tab-btn.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+            background: linear-gradient(180deg, transparent 0%, rgba(102, 126, 234, 0.1) 100%);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .stat-card.highlight {
+            background: linear-gradient(135deg, #2d1a1a 0%, #3e1616 100%);
+            border-color: #5a2727;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-number.orange { color: #f39c12; }
+        .stat-number.green { color: #27ae60; }
+        .stat-number.red { color: #e74c3c; }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 1px solid #444;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #667eea;
+            border-color: #667eea;
+            color: white;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 20px;
+            border: 1px solid #444;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: #667eea;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            display: inline-block;
+        }
+
+        .section-title.orange { border-bottom-color: #f39c12; }
+
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            background: #1a1a2e;
+            border-radius: 16px;
+            border: 1px solid #333;
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1000px;
+        }
+
+        table.gastro-table {
+            min-width: 1200px;
+        }
+
+        th {
+            background: #16213e;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #667eea;
+            border-bottom: 2px solid #333;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+        }
+
+        th:hover {
+            background: #1f2b47;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #2a2a4a;
+        }
+
+        tr:hover {
+            background: #252545;
+        }
+
+        .company-name {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .cat-facturacion { background: #2d5a27; color: #90EE90; }
+        .cat-gastronomico { background: #5a2727; color: #ffb3b3; }
+        .cat-erp { background: #27415a; color: #b3d4ff; }
+        .cat-ecommerce { background: #5a4827; color: #ffd699; }
+        .cat-logistica { background: #4a275a; color: #e6b3ff; }
+        .cat-turnos { background: #275a5a; color: #b3ffff; }
+        .cat-cobranzas { background: #5a4a27; color: #ffcc99; }
+        .cat-rrhh { background: #3d275a; color: #d4b3ff; }
+        .cat-veterinarias { background: #27503d; color: #99ffcc; }
+        .cat-gimnasios { background: #5a3527; color: #ffb899; }
+        .cat-inmobiliarias { background: #27395a; color: #99c2ff; }
+        .cat-talleres { background: #4a4a27; color: #e6e699; }
+        .cat-belleza { background: #5a2750; color: #ff99e6; }
+        .cat-medicos { background: #27505a; color: #99e6ff; }
+        .cat-contables { background: #3a5a27; color: #b3ff99; }
+        .cat-kioscos { background: #5a5027; color: #ffe699; }
+        .cat-farmacias { background: #275a3a; color: #99ffb3; }
+        .cat-lavanderia { background: #4a275a; color: #d699ff; }
+        .cat-otros { background: #3a3a3a; color: #ccc; }
+
+        .complexity-badge, .tier-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+
+        .complexity-baja { background: #1a4d1a; color: #7dff7d; }
+        .complexity-media { background: #4d4d1a; color: #ffff7d; }
+        .complexity-alta { background: #4d1a1a; color: #ff7d7d; }
+
+        .tier-1 { background: #1a4d1a; color: #7dff7d; }
+        .tier-2 { background: #4d4d1a; color: #ffff7d; }
+        .tier-3 { background: #4d1a1a; color: #ff7d7d; }
+
+        .price-cell {
+            font-family: 'Monaco', monospace;
+            color: #7dffb3;
+        }
+
+        .instagram-link {
+            color: #E1306C;
+            text-decoration: none;
+        }
+
+        .instagram-link:hover {
+            text-decoration: underline;
+        }
+
+        .web-link {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .web-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Charts Section */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .chart-card {
+            background: #1a1a2e;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #333;
+        }
+
+        .chart-title {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bar-label {
+            width: 140px;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .bar-container {
+            flex: 1;
+            height: 28px;
+            background: #252545;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .bar {
+            height: 100%;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            padding-left: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            transition: width 1s ease;
+        }
+
+        /* Models Section */
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .model-card {
+            background: #1a1a2e;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #333;
+        }
+
+        .model-title {
+            font-size: 1.1rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .model-description {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .model-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .example-tag {
+            background: #252545;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        /* Opportunities */
+        .opportunities {
+            background: linear-gradient(135deg, #1a2a1a 0%, #162e16 100%);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #2a4a2a;
+            margin-bottom: 40px;
+        }
+
+        .opp-title {
+            color: #7dff7d;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .opp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .opp-item {
+            background: rgba(0,0,0,0.2);
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .opp-item h4 {
+            color: #90EE90;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .opp-item p {
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+
+        .opp-item .time {
+            display: inline-block;
+            background: #1a4d1a;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-top: 8px;
+        }
+
+        /* Market Share Pie */
+        .market-info {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #333;
+            margin-bottom: 40px;
+        }
+
+        .market-info h3 {
+            color: #f39c12;
+            margin-bottom: 20px;
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .market-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+        }
+
+        .market-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .market-details h4 {
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .market-details p {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .market-share {
+            margin-left: auto;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f39c12;
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-box.warning {
+            background: rgba(243, 156, 18, 0.1);
+            border-color: rgba(243, 156, 18, 0.3);
+        }
+
+        .info-box h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .info-box.warning h4 {
+            color: #f39c12;
+        }
+
+        .info-box p, .info-box li {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        /* Comparison cards */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .comparison-card {
+            background: #1a1a2e;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #333;
+        }
+
+        .comparison-card.featured {
+            border-color: #f39c12;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2e2a1a 100%);
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        .comparison-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .comparison-title h3 {
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .comparison-title p {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .comparison-prices {
+            margin-bottom: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #2a2a4a;
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-label {
+            color: #888;
+        }
+
+        .price-value {
+            color: #7dffb3;
+            font-family: 'Monaco', monospace;
+            font-weight: 600;
+        }
+
+        .comparison-features {
+            margin-top: 15px;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: #252545;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            color: #aaa;
+            margin: 3px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .charts-grid { grid-template-columns: 1fr; }
+            .filters { flex-direction: column; }
+            .tabs { flex-wrap: wrap; }
+            .tab-btn { padding: 10px 15px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SaaS Argentina - Análisis de Mercado</h1>
+            <p class="subtitle">Análisis completo de software para negocios en Argentina</p>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="general">SaaS FALOPA (68)</button>
+            <button class="tab-btn" data-tab="gastro">Software Gastronómico CABA</button>
+        </div>
+
+        <!-- Tab 1: General SaaS -->
+        <div id="general" class="tab-content active">
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">68</div>
+                    <div class="stat-label">SaaS Falopa Analizados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">16</div>
+                    <div class="stat-label">Categorías/Nichos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$15-100</div>
+                    <div class="stat-label">USD/mes (promedio)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">75%</div>
+                    <div class="stat-label">Complejidad Baja-Media</div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <h2 class="section-title">Distribución por Categoría (Top 10)</h2>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3 class="chart-title">SaaS por Nicho</h3>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <span class="bar-label">ERP/Gestión</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 100%; background: linear-gradient(90deg, #3498db, #2980b9);">13</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Gastronómico</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 69%; background: linear-gradient(90deg, #e74c3c, #c0392b);">9</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Facturación</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 69%; background: linear-gradient(90deg, #27ae60, #1e8449);">9</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Inmobiliarias</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 31%; background: linear-gradient(90deg, #9b59b6, #8e44ad);">4</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Kioscos/POS</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 31%; background: linear-gradient(90deg, #f39c12, #d68910);">4</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Veterinarias</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 23%; background: linear-gradient(90deg, #1abc9c, #16a085);">3</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Gimnasios</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 23%; background: linear-gradient(90deg, #e67e22, #d35400);">3</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Turnos/Citas</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 23%; background: linear-gradient(90deg, #00b894, #00cec9);">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">Modelos de Negocio</h3>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <span class="bar-label">Suscripción Mensual</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">38</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Cotización Custom</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 45%; background: linear-gradient(90deg, #4568dc, #b06ab3);">17</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Freemium</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 24%; background: linear-gradient(90deg, #11998e, #38ef7d);">9</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Licencia + Soporte</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 21%; background: linear-gradient(90deg, #ee0979, #ff6a00);">8</div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <span class="bar-label">Por Usuario</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 13%; background: linear-gradient(90deg, #f093fb, #f5576c);">5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Models -->
+            <h2 class="section-title">Modelos de Negocio Identificados</h2>
+            <div class="models-grid">
+                <div class="model-card">
+                    <h3 class="model-title">Suscripción Mensual Simple</h3>
+                    <p class="model-description">Precio fijo mensual, sin contratos largos, cancela cuando quieras.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Fudo $15.500</span>
+                        <span class="example-tag">Dux $3.900</span>
+                        <span class="example-tag">Popapp $45 USD</span>
+                        <span class="example-tag">Bistrosoft $31.500</span>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <h3 class="model-title">Freemium</h3>
+                    <p class="model-description">Plan gratuito limitado + planes pagos escalables.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Xubio (10 fact gratis)</span>
+                        <span class="example-tag">Tiendanube $0</span>
+                        <span class="example-tag">TusFacturasAPP</span>
+                        <span class="example-tag">Odoo (1 app gratis)</span>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <h3 class="model-title">Por Usuario/Licencia</h3>
+                    <p class="model-description">Precio por cada usuario adicional, común en ERPs enterprise.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Finnegans $50-200 USD</span>
+                        <span class="example-tag">Softland $50-200 USD</span>
+                        <span class="example-tag">Odoo €12-18</span>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <h3 class="model-title">Por Volumen/Operaciones</h3>
+                    <p class="model-description">Pago según uso (facturas emitidas, operaciones, envíos).</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Contagram</span>
+                        <span class="example-tag">Rapiboy</span>
+                        <span class="example-tag">EPSA Red</span>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <h3 class="model-title">Pago Único + Hardware</h3>
+                    <p class="model-description">Licencia perpetua, sin abono mensual. Ideal para POS.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Dorar Soluciones</span>
+                        <span class="example-tag">Núcleo IT</span>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <h3 class="model-title">Royalty/Comisión</h3>
+                    <p class="model-description">Porcentaje de la facturación mensual.</p>
+                    <div class="model-examples">
+                        <span class="example-tag">Atomic Kitchens 8%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Opportunities -->
+            <div class="opportunities">
+                <h2 class="opp-title">Oportunidades para desarrollo con Claude Code</h2>
+                <div class="opp-grid">
+                    <div class="opp-item">
+                        <h4>Bot facturación monotributo</h4>
+                        <p>Integración API AFIP, generación automática de facturas</p>
+                        <span class="time">15-30 min</span>
+                    </div>
+                    <div class="opp-item">
+                        <h4>Carta digital con QR</h4>
+                        <p>Menú online para restaurantes, actualizable en tiempo real</p>
+                        <span class="time">15-30 min</span>
+                    </div>
+                    <div class="opp-item">
+                        <h4>Dashboard ventas básico</h4>
+                        <p>Visualización de ventas, top productos, tendencias</p>
+                        <span class="time">30-60 min</span>
+                    </div>
+                    <div class="opp-item">
+                        <h4>Integración MercadoPago QR</h4>
+                        <p>Cobros mediante código QR, notificaciones de pago</p>
+                        <span class="time">30-60 min</span>
+                    </div>
+                    <div class="opp-item">
+                        <h4>Sistema de stock con alertas</h4>
+                        <p>CRUD productos, stock mínimo, notificaciones</p>
+                        <span class="time">1-2 horas</span>
+                    </div>
+                    <div class="opp-item">
+                        <h4>Gestor de comandas cocina</h4>
+                        <p>Pedidos en tiempo real, estados, impresión</p>
+                        <span class="time">1-2 horas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters and Table -->
+            <h2 class="section-title">Listado Completo de Empresas</h2>
+            <div class="filters">
+                <input type="text" class="search-box" id="searchBox" placeholder="Buscar empresa o categoría...">
+                <button class="filter-btn active" data-filter="all">Todas (68)</button>
+                <button class="filter-btn" data-filter="facturacion">Facturación</button>
+                <button class="filter-btn" data-filter="turnos">Turnos</button>
+                <button class="filter-btn" data-filter="cobranzas">Cobranzas</button>
+                <button class="filter-btn" data-filter="rrhh">RRHH</button>
+                <button class="filter-btn" data-filter="veterinarias">Veterinarias</button>
+                <button class="filter-btn" data-filter="gimnasios">Gimnasios</button>
+                <button class="filter-btn" data-filter="inmobiliarias">Inmobiliarias</button>
+                <button class="filter-btn" data-filter="talleres">Talleres</button>
+                <button class="filter-btn" data-filter="belleza">Belleza</button>
+                <button class="filter-btn" data-filter="medicos">Médicos</button>
+                <button class="filter-btn" data-filter="contables">Contables</button>
+                <button class="filter-btn" data-filter="kioscos">Kioscos</button>
+                <button class="filter-btn" data-filter="farmacias">Farmacias</button>
+                <button class="filter-btn" data-filter="gastronomico">Gastronómico</button>
+                <button class="filter-btn" data-filter="erp">ERP</button>
+            </div>
+
+            <div class="table-container">
+                <table id="companiesTable">
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>Categoría</th>
+                            <th>Modelo de Negocio</th>
+                            <th>Precio Base</th>
+                            <th>Complejidad</th>
+                            <th>Instagram</th>
+                            <th>Web</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 2: Software Gastronómico CABA -->
+        <div id="gastro" class="tab-content">
+            <!-- Stats CABA -->
+            <div class="stats-grid">
+                <div class="stat-card highlight">
+                    <div class="stat-number orange">~13.000</div>
+                    <div class="stat-label">Locales gastronómicos activos en CABA</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Softwares analizados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number green">$15-60</div>
+                    <div class="stat-label">USD/mes rango típico</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number red">~30%</div>
+                    <div class="stat-label">Penetración estimada software</div>
+                </div>
+            </div>
+
+            <!-- Market Info -->
+            <div class="market-info">
+                <h3>Mercado Gastronómico en CABA</h3>
+                <div class="info-box warning">
+                    <h4>Datos del mercado (fuentes oficiales)</h4>
+                    <ul>
+                        <li><strong>19.165 locales</strong> habilitados históricamente (11.723 café-bar + 7.442 restaurante-cantina)</li>
+                        <li><strong>~13.000 locales</strong> gastronómicos activos (dato dic 2024)</li>
+                        <li><strong>58% concentrados</strong> en 7 barrios: Montserrat, Retiro, Caballito, Flores, Floresta, Palermo, Colegiales</li>
+                        <li><strong>~30 aperturas significativas</strong> en lo que va de 2025</li>
+                    </ul>
+                </div>
+
+                <h4 style="margin-top: 20px; color: #fff;">Líderes del mercado (por clientes declarados)</h4>
+                <div class="market-grid" style="margin-top: 15px;">
+                    <div class="market-item">
+                        <div class="market-logo" style="background: #e74c3c;">F</div>
+                        <div class="market-details">
+                            <h4>Fudo</h4>
+                            <p>30.000+ negocios (total global)</p>
+                        </div>
+                        <div class="market-share">~25%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-logo" style="background: #3498db;">B</div>
+                        <div class="market-details">
+                            <h4>Bistrosoft</h4>
+                            <p>25.000+ locales (8 países Latam)</p>
+                        </div>
+                        <div class="market-share">~20%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-logo" style="background: #27ae60;">M</div>
+                        <div class="market-details">
+                            <h4>Maxirest</h4>
+                            <p>20.000+ licencias (Argentina)</p>
+                        </div>
+                        <div class="market-share">~25%</div>
+                    </div>
+                    <div class="market-item">
+                        <div class="market-logo" style="background: #9b59b6;">O</div>
+                        <div class="market-details">
+                            <h4>Otros</h4>
+                            <p>Tango, Núcleo IT, Thinkion, etc.</p>
+                        </div>
+                        <div class="market-share">~30%</div>
+                    </div>
+                </div>
+                <p style="color: #666; font-size: 0.8rem; margin-top: 15px;">* Estimaciones basadas en clientes declarados por cada empresa. El market share real en CABA puede variar.</p>
+            </div>
+
+            <!-- Comparison Cards -->
+            <h2 class="section-title orange">Comparativa de Precios y Features</h2>
+
+            <div class="comparison-grid">
+                <div class="comparison-card featured">
+                    <div class="comparison-header">
+                        <div class="comparison-logo">F</div>
+                        <div class="comparison-title">
+                            <h3>Fudo</h3>
+                            <p>El más popular para PyMEs</p>
+                        </div>
+                    </div>
+                    <div class="comparison-prices">
+                        <div class="price-row">
+                            <span class="price-label">Implementación</span>
+                            <span class="price-value">$0 (con partners)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Plan Inicial</span>
+                            <span class="price-value">$15.500/mes</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Plan Avanzado</span>
+                            <span class="price-value">~$25.000/mes</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Plan Pro</span>
+                            <span class="price-value">~$35.000/mes</span>
+                        </div>
+                    </div>
+                    <div class="comparison-features">
+                        <span class="feature-tag">100% nube</span>
+                        <span class="feature-tag">Sin hardware</span>
+                        <span class="feature-tag">Usuarios ilimitados</span>
+                        <span class="feature-tag">PedidosYa</span>
+                        <span class="feature-tag">Rappi</span>
+                        <span class="feature-tag">Factura AFIP</span>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <div class="comparison-logo" style="background: linear-gradient(135deg, #3498db, #2980b9);">B</div>
+                        <div class="comparison-title">
+                            <h3>Bistrosoft</h3>
+                            <p>Android-first, 10 años exp.</p>
+                        </div>
+                    </div>
+                    <div class="comparison-prices">
+                        <div class="price-row">
+                            <span class="price-label">Implementación</span>
+                            <span class="price-value">Cotización</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Licencia Web</span>
+                            <span class="price-value">$31.500+IVA/mes</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Plan Avanzado</span>
+                            <span class="price-value">$56.000+IVA/mes</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Plan Premium</span>
+                            <span class="price-value">Cotización</span>
+                        </div>
+                    </div>
+                    <div class="comparison-features">
+                        <span class="feature-tag">Android nativo</span>
+                        <span class="feature-tag">Sin permanencia</span>
+                        <span class="feature-tag">MercadoPago</span>
+                        <span class="feature-tag">Contabilium</span>
+                        <span class="feature-tag">Stock/Recetas</span>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <div class="comparison-logo" style="background: linear-gradient(135deg, #27ae60, #1e8449);">M</div>
+                        <div class="comparison-title">
+                            <h3>Maxirest</h3>
+                            <p>30 años en el mercado</p>
+                        </div>
+                    </div>
+                    <div class="comparison-prices">
+                        <div class="price-row">
+                            <span class="price-label">Implementación</span>
+                            <span class="price-value">Bonificada</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Plan Xpress</span>
+                            <span class="price-value">Desde $11.996+IVA</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Plan Pro</span>
+                            <span class="price-value">Cotización</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Pro Integral</span>
+                            <span class="price-value">Cotización</span>
+                        </div>
+                    </div>
+                    <div class="comparison-features">
+                        <span class="feature-tag">Windows</span>
+                        <span class="feature-tag">Prueba 15 días</span>
+                        <span class="feature-tag">Soporte L-S 9-24h</span>
+                        <span class="feature-tag">Delivery incluido</span>
+                        <span class="feature-tag">Facturación fiscal</span>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <div class="comparison-logo" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">T</div>
+                        <div class="comparison-title">
+                            <h3>Thinkion</h3>
+                            <p>3+ años desarrollo, all-in-one</p>
+                        </div>
+                    </div>
+                    <div class="comparison-prices">
+                        <div class="price-row">
+                            <span class="price-label">Implementación</span>
+                            <span class="price-value">Incluida + capacitación</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Licencia mensual</span>
+                            <span class="price-value">Cotización (por local)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Módulos extras</span>
+                            <span class="price-value">$0 (todos incluidos)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Actualizaciones</span>
+                            <span class="price-value">$0 (siempre última versión)</span>
+                        </div>
+                    </div>
+                    <div class="comparison-features">
+                        <span class="feature-tag">Sin costos ocultos</span>
+                        <span class="feature-tag">Call Center incl.</span>
+                        <span class="feature-tag">Ecommerce incl.</span>
+                        <span class="feature-tag">Rappi/Glovo/PedidosYa</span>
+                        <span class="feature-tag">Curva 2-15 días</span>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <div class="comparison-logo" style="background: linear-gradient(135deg, #e67e22, #d35400);">TR</div>
+                        <div class="comparison-title">
+                            <h3>Tango Restô</h3>
+                            <p>Respaldado por Axoft (28 años)</p>
+                        </div>
+                    </div>
+                    <div class="comparison-prices">
+                        <div class="price-row">
+                            <span class="price-label">Implementación</span>
+                            <span class="price-value">Cotización</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Licencia</span>
+                            <span class="price-value">Cotización personalizada</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Tango Nube</span>
+                            <span class="price-value">Abono mensual (Claro Cloud)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Soporte</span>
+                            <span class="price-value">200+ centros en el país</span>
+                        </div>
+                    </div>
+                    <div class="comparison-features">
+                        <span class="feature-tag">Integra Tango Gestión</span>
+                        <span class="feature-tag">Tablet Android</span>
+                        <span class="feature-tag">MercadoPago QR</span>
+                        <span class="feature-tag">Multi-sucursal</span>
+                        <span class="feature-tag">TangoNet</span>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <div class="comparison-logo" style="background: linear-gradient(135deg, #1abc9c, #16a085);">P</div>
+                        <div class="comparison-title">
+                            <h3>Popapp</h3>
+                            <p>Especialista en delivery</p>
+                        </div>
+                    </div>
+                    <div class="comparison-prices">
+                        <div class="price-row">
+                            <span class="price-label">Setup inicial</span>
+                            <span class="price-value">$40 USD (único)</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Mensual</span>
+                            <span class="price-value">$45 USD/mes</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Funciones extras</span>
+                            <span class="price-value">Todas incluidas</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="price-label">Cancelación</span>
+                            <span class="price-value">Sin ataduras</span>
+                        </div>
+                    </div>
+                    <div class="comparison-features">
+                        <span class="feature-tag">5000+ tiendas Latam</span>
+                        <span class="feature-tag">Unifica delivery apps</span>
+                        <span class="feature-tag">Setup en 48h</span>
+                        <span class="feature-tag">Carta QR</span>
+                        <span class="feature-tag">87% satisfacción</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full Table -->
+            <h2 class="section-title orange">Tabla Comparativa Completa</h2>
+            <div class="table-container">
+                <table class="gastro-table" id="gastroTable">
+                    <thead>
+                        <tr>
+                            <th>Software</th>
+                            <th>Implementación</th>
+                            <th>Precio Mensual</th>
+                            <th>Clientes (declarados)</th>
+                            <th>Market Share Est. CABA</th>
+                            <th>Antigüedad</th>
+                            <th>Modelo</th>
+                            <th>Web</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="info-box">
+                <h4>Notas sobre el análisis de Market Share</h4>
+                <p>Las estimaciones de participación de mercado en CABA se basan en:</p>
+                <ul>
+                    <li>Clientes declarados públicamente por cada empresa</li>
+                    <li>Proporción Argentina vs. otros países (cuando aplica)</li>
+                    <li>Concentración de CABA (~40% del mercado gastronómico argentino)</li>
+                    <li>Entrevistas y artículos de prensa del sector</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Importante:</strong> ~70% de los locales gastronómicos en CABA aún no utilizan software especializado o usan soluciones básicas (Excel, cuadernos, facturación manual AFIP).</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Análisis generado con Claude Code | Datos actualizados a Enero 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                this.classList.add('active');
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
+
+        // SaaS Falopa data
+        const companies = [
+            // === FACTURACIÓN / CONTABILIDAD ===
+            { name: "Xubio", category: "facturacion", categoryLabel: "Facturación/Contab.", model: "Freemium + tiers", price: "$0 - $231.400/mes", complexity: "media", instagram: "@xubiogestion", web: "xubio.com/ar" },
+            { name: "Contagram", category: "facturacion", categoryLabel: "Facturación/Contab.", model: "Por operaciones", price: "Por cantidad operaciones", complexity: "media", instagram: "@contagram_ar", web: "contagram.com" },
+            { name: "Alegra", category: "facturacion", categoryLabel: "Facturación/Contab.", model: "Suscripción mensual", price: "Cotización por país", complexity: "media", instagram: "@alegraarg", web: "alegra.com" },
+            { name: "Colppy", category: "facturacion", categoryLabel: "Facturación/Contab.", model: "Suscripción personalizada", price: "30% descuento PyMEs", complexity: "media", instagram: "-", web: "colppy.com" },
+            { name: "TusFacturasAPP", category: "facturacion", categoryLabel: "Facturación", model: "Freemium", price: "$14.153 + IVA/mes", complexity: "baja", instagram: "-", web: "tusfacturas.app" },
+            { name: "Facturitas", category: "facturacion", categoryLabel: "Facturación WhatsApp", model: "Suscripción mensual", price: "$4.999/mes (3 meses gratis)", complexity: "baja", instagram: "-", web: "facturitas.app" },
+            { name: "SaaS Argentina", category: "facturacion", categoryLabel: "Gestión Comercial", model: "Suscripción mensual", price: "$55.160 + IVA/mes", complexity: "media", instagram: "-", web: "saasargentina.com" },
+            { name: "GDS Sistemas", category: "facturacion", categoryLabel: "Gestión/Facturación", model: "Licencia", price: "Cotización", complexity: "media", instagram: "-", web: "gdssistemas.com.ar" },
+            { name: "TFactura", category: "facturacion", categoryLabel: "Facturación", model: "Suscripción mensual", price: "-", complexity: "baja", instagram: "@tfactura", web: "-" },
+
+            // === TURNOS / CITAS ===
+            { name: "AgendaPro", category: "turnos", categoryLabel: "Turnos/Citas", model: "Suscripción mensual", price: "Ver planes en sitio", complexity: "baja", instagram: "-", web: "agendapro.com/ar" },
+            { name: "Turnito", category: "turnos", categoryLabel: "Turnos/Citas", model: "Freemium + comisión", price: "$0 (básico) / 5% turnos pagos", complexity: "baja", instagram: "-", web: "turnito.app" },
+            { name: "Turnonet", category: "turnos", categoryLabel: "Turnos/Citas", model: "Suscripción mensual", price: "Débito automático", complexity: "baja", instagram: "-", web: "turnonet.com" },
+
+            // === COBRANZAS ===
+            { name: "Debitia", category: "cobranzas", categoryLabel: "Cobranzas/Morosos", model: "Suscripción por volumen", price: "$50-500+ USD/usuario", complexity: "media", instagram: "-", web: "debitia.com.ar" },
+            { name: "Moonflow", category: "cobranzas", categoryLabel: "Cobranzas con IA", model: "Suscripción mensual", price: "Cotización (reduce 90% costos)", complexity: "media", instagram: "-", web: "moonflow.ai/es-ar" },
+            { name: "Colektia", category: "cobranzas", categoryLabel: "Cobranzas con IA", model: "Suscripción mensual", price: "+25% recupero prometido", complexity: "media", instagram: "-", web: "colektia.com" },
+
+            // === RRHH / SUELDOS ===
+            { name: "e-Sueldos", category: "rrhh", categoryLabel: "RRHH/Sueldos", model: "Suscripción nube", price: "170+ convenios incluidos", complexity: "media", instagram: "-", web: "e-sueldos.com" },
+            { name: "Naaloo HR", category: "rrhh", categoryLabel: "RRHH PyMEs", model: "Suscripción mensual", price: "Ahorro 60% tiempo", complexity: "baja", instagram: "-", web: "naaloo.com" },
+            { name: "Bejerman Sueldos", category: "rrhh", categoryLabel: "RRHH/Sueldos", model: "Licencia + suscripción", price: "Cotización", complexity: "media", instagram: "-", web: "thomsonreuters.com.ar" },
+
+            // === VETERINARIAS ===
+            { name: "MyVete", category: "veterinarias", categoryLabel: "Veterinarias", model: "Suscripción mensual", price: "Ver planes", complexity: "baja", instagram: "-", web: "myvete.com" },
+            { name: "Volki", category: "veterinarias", categoryLabel: "Veterinarias", model: "Suscripción mensual", price: "Precios Argentina disponibles", complexity: "baja", instagram: "-", web: "volki.vet" },
+            { name: "GVET", category: "veterinarias", categoryLabel: "Veterinarias", model: "Suscripción nube", price: "Cotización", complexity: "baja", instagram: "-", web: "gvet.com.ar" },
+
+            // === GIMNASIOS ===
+            { name: "Crossfy", category: "gimnasios", categoryLabel: "Gimnasios/Fitness", model: "Suscripción mensual", price: "USD sin límite socios", complexity: "baja", instagram: "-", web: "crossfyapp.com" },
+            { name: "SocioPLUS", category: "gimnasios", categoryLabel: "Gimnasios/Fitness", model: "Por cantidad socios", price: "$900-1300/mes", complexity: "baja", instagram: "-", web: "socioplus.com.ar" },
+            { name: "Control Gym", category: "gimnasios", categoryLabel: "Gimnasios/Fitness", model: "Licencia", price: "20+ años, 1500+ usuarios", complexity: "media", instagram: "-", web: "controlgym.com.ar" },
+
+            // === INMOBILIARIAS ===
+            { name: "2clics App", category: "inmobiliarias", categoryLabel: "CRM Inmobiliario", model: "Suscripción mensual", price: "400+ inmobiliarias", complexity: "baja", instagram: "-", web: "2clics.app" },
+            { name: "KiteProp", category: "inmobiliarias", categoryLabel: "CRM Inmobiliario", model: "Suscripción mensual", price: "~$40 USD promedio", complexity: "baja", instagram: "-", web: "kiteprop.com/ar" },
+            { name: "Tokko Broker", category: "inmobiliarias", categoryLabel: "CRM Inmobiliario", model: "Suscripción nube", price: "Cotización", complexity: "media", instagram: "-", web: "tokkobroker.com" },
+            { name: "Xintel", category: "inmobiliarias", categoryLabel: "Software Inmobiliario", model: "Suscripción mensual", price: "Líder ARG/URU", complexity: "media", instagram: "-", web: "xintel.com.ar" },
+
+            // === TALLERES MECÁNICOS ===
+            { name: "MechSys", category: "talleres", categoryLabel: "Talleres Mecánicos", model: "Suscripción mensual", price: "Consultar conversión", complexity: "baja", instagram: "-", web: "mechsys.ar" },
+            { name: "MotorEasy 3.0", category: "talleres", categoryLabel: "Talleres Mecánicos", model: "Licencia + soporte", price: "MercadoPago/RapiPago", complexity: "media", instagram: "-", web: "ts-sistemas.com.ar" },
+            { name: "AutoSoft Taller", category: "talleres", categoryLabel: "Talleres con IA", model: "Suscripción mensual", price: "Mejor precio-valor", complexity: "media", instagram: "-", web: "autosofttaller.com" },
+
+            // === PELUQUERÍAS / BELLEZA ===
+            { name: "XScissors", category: "belleza", categoryLabel: "Peluquerías/Belleza", model: "Suscripción mensual", price: "19+ años experiencia", complexity: "baja", instagram: "-", web: "xscissors.com" },
+            { name: "Citalo", category: "belleza", categoryLabel: "Peluquerías/Belleza", model: "Suscripción mensual", price: "300+ salones, -40% inasistencias", complexity: "baja", instagram: "-", web: "citalo.app" },
+
+            // === CONSULTORIOS MÉDICOS ===
+            { name: "Medicloud", category: "medicos", categoryLabel: "Consultorios Médicos", model: "Freemium + planes", price: "Plan gratis disponible", complexity: "media", instagram: "-", web: "medicloud.com.ar" },
+            { name: "Nubidoc", category: "medicos", categoryLabel: "Consultorios Médicos", model: "Suscripción mensual", price: "15 días prueba gratis", complexity: "media", instagram: "-", web: "nubidoc.com" },
+            { name: "Geclisa", category: "medicos", categoryLabel: "Clínicas/Hospitales", model: "Licencia + soporte", price: "Cotización (Córdoba)", complexity: "alta", instagram: "-", web: "geclisa.com" },
+
+            // === ESTUDIOS CONTABLES ===
+            { name: "SOS-Contador", category: "contables", categoryLabel: "Estudios Contables", model: "Freemium + premium", price: "FREE ilimitado / Premium $89.240", complexity: "media", instagram: "-", web: "sos-contador.com" },
+            { name: "E-Dynamic", category: "contables", categoryLabel: "Estudios Contables", model: "Suscripción mensual", price: "Agenda impositiva auto", complexity: "media", instagram: "-", web: "e-dynamic.com.ar" },
+            { name: "Tango Estudios", category: "contables", categoryLabel: "Estudios Contables", model: "Licencia Axoft", price: "Cotización", complexity: "alta", instagram: "-", web: "axoft.com/tango" },
+
+            // === KIOSCOS / ALMACENES ===
+            { name: "Fácil Virtual", category: "kioscos", categoryLabel: "Kioscos/Almacenes", model: "Licencia", price: "6500+ productos precargados", complexity: "baja", instagram: "-", web: "facilvirtual.com.ar" },
+            { name: "SistemaStock", category: "kioscos", categoryLabel: "Kioscos/Almacenes", model: "Suscripción mensual", price: "$24.000/mes o $240.000/año", complexity: "baja", instagram: "-", web: "sistemastock.com" },
+            { name: "Gestión Comercio", category: "kioscos", categoryLabel: "Kioscos/POS", model: "Licencia + soporte", price: "Capacitación incluida", complexity: "baja", instagram: "-", web: "gestioncomercio.com.ar" },
+            { name: "BambooSoft", category: "kioscos", categoryLabel: "Kioscos/POS", model: "Suscripción mensual", price: "Cotización", complexity: "baja", instagram: "-", web: "bamboosoft.com.ar" },
+
+            // === LAVANDERÍAS ===
+            { name: "Sistema Tintorería", category: "lavanderia", categoryLabel: "Lavanderías", model: "Licencia única", price: "MercadoPago/Transferencia", complexity: "baja", instagram: "-", web: "ts-sistemas.com.ar" },
+
+            // === FARMACIAS ===
+            { name: "Sistema GEMA", category: "farmacias", categoryLabel: "Farmacias", model: "Licencia + soporte", price: "1200+ farmacias ARG", complexity: "media", instagram: "-", web: "sistemagema.com.ar" },
+            { name: "SIAF", category: "farmacias", categoryLabel: "Farmacias", model: "Licencia", price: "3000+ obras sociales", complexity: "media", instagram: "-", web: "siaf.com.ar" },
+
+            // === ERP / GESTIÓN INTEGRAL ===
+            { name: "Dux Software", category: "erp", categoryLabel: "ERP/Gestión", model: "Suscripción mensual", price: "Desde $3.900/mes", complexity: "baja", instagram: "@duxsoftware", web: "duxsoftware.com.ar" },
+            { name: "Contabilium", category: "erp", categoryLabel: "ERP/Facturación", model: "Suscripción mensual", price: "10 días gratis", complexity: "media", instagram: "-", web: "contabilium.com/ar" },
+            { name: "EGA Futura", category: "erp", categoryLabel: "ERP PyMEs", model: "Suscripción mensual", price: "Latam y USA", complexity: "media", instagram: "-", web: "egafutura.com" },
+            { name: "Softland", category: "erp", categoryLabel: "ERP Empresarial", model: "Por usuario", price: "$50-200+ USD/usuario", complexity: "alta", instagram: "@softland.argentina", web: "softland.com.ar" },
+            { name: "Finnegans", category: "erp", categoryLabel: "ERP Empresarial", model: "Por usuario", price: "$50-200+ USD/usuario", complexity: "alta", instagram: "@finnegans_sa", web: "finneg.com/ar" },
+            { name: "Tango Gestión", category: "erp", categoryLabel: "ERP Empresarial", model: "Licencia + suscripción", price: "Cotización", complexity: "alta", instagram: "-", web: "axoft.com/tango" },
+            { name: "Bejerman ERP", category: "erp", categoryLabel: "ERP Empresarial", model: "Licencia + soporte", price: "Cotización", complexity: "alta", instagram: "-", web: "thomsonreuters.com.ar" },
+            { name: "Cuantico Tech", category: "erp", categoryLabel: "ERP/Gestión", model: "Suscripción + impl.", price: "Cotización", complexity: "media", instagram: "@cuanticotech", web: "cuantico.com.ar" },
+            { name: "Ábaco Software", category: "erp", categoryLabel: "ERP/Gestión", model: "Suscripción mensual", price: "Cotización", complexity: "media", instagram: "@abacosoftware", web: "abacosoftware.com.ar" },
+            { name: "Odoo", category: "erp", categoryLabel: "ERP Open Source", model: "Por usuario", price: "€11.90-17.90/usuario", complexity: "alta", instagram: "-", web: "odoo.com" },
+            { name: "Netegia", category: "erp", categoryLabel: "ERP", model: "Suscripción mensual", price: "Ver sitio", complexity: "media", instagram: "-", web: "netegia.com" },
+            { name: "administraNET", category: "erp", categoryLabel: "ERP/Odoo", model: "Gratuito + consultoría", price: "Gratuito", complexity: "media", instagram: "-", web: "administranet.com.ar" },
+            { name: "Mastersoft", category: "erp", categoryLabel: "ERP PyMEs", model: "Suscripción mensual", price: "300+ empresas LATAM", complexity: "media", instagram: "-", web: "mastersoft.com.ar" },
+
+            // === GASTRONÓMICO ===
+            { name: "Fudo", category: "gastronomico", categoryLabel: "Gastronómico", model: "Suscripción mensual", price: "Desde $15.500/mes", complexity: "baja", instagram: "@socialfudo", web: "fu.do" },
+            { name: "Bistrosoft", category: "gastronomico", categoryLabel: "Gastronómico", model: "Suscripción por tiers", price: "$31.500 - $56.000/mes", complexity: "media", instagram: "-", web: "bistrosoft.com" },
+            { name: "Popapp", category: "gastronomico", categoryLabel: "Gastronómico/Delivery", model: "Suscripción mensual", price: "$45 USD/mes", complexity: "baja", instagram: "-", web: "popapp.io" },
+            { name: "Dorar Soluciones", category: "gastronomico", categoryLabel: "POS/Punto de Venta", model: "Pago único", price: "Pago único (sin abono)", complexity: "baja", instagram: "@dorarsoluciones", web: "dorar.com.ar" },
+            { name: "Núcleo IT", category: "gastronomico", categoryLabel: "Gastronómico", model: "Licencia + soporte", price: "Cotización", complexity: "media", instagram: "@nucleoit", web: "nucleoit.com.ar" },
+            { name: "Ambit.la", category: "gastronomico", categoryLabel: "Gastronómico", model: "Suscripción mensual", price: "Cotización", complexity: "media", instagram: "@ambit.la", web: "ambit.la" },
+            { name: "Last.app", category: "gastronomico", categoryLabel: "Gastronómico", model: "Suscripción mensual", price: "Ver sitio web", complexity: "media", instagram: "@last.app", web: "last.app" },
+            { name: "CloudPOS", category: "gastronomico", categoryLabel: "POS/Retail", model: "Implementación + mensual", price: "Cotización", complexity: "media", instagram: "@cloudpos_", web: "cloudpos.com.ar" },
+            { name: "Deligo", category: "gastronomico", categoryLabel: "Delivery/Gastro", model: "No encontrado", price: "-", complexity: "baja", instagram: "@deligo.ok", web: "-" },
+
+            // === E-COMMERCE ===
+            { name: "Tiendanube", category: "ecommerce", categoryLabel: "E-commerce", model: "Freemium + tiers", price: "$0 - $24.999+/mes", complexity: "media", instagram: "-", web: "tiendanube.com" },
+
+            // === LOGÍSTICA ===
+            { name: "Rapiboy", category: "logistica", categoryLabel: "Logística/Delivery", model: "Pago por uso", price: "Tarifa por envío", complexity: "baja", instagram: "@rapiboyargentina", web: "rapiboy.com" },
+            { name: "EPSA Red", category: "logistica", categoryLabel: "Logística", model: "Servicio logístico", price: "Por servicio", complexity: "n/a", instagram: "@epsared", web: "epsared.com.ar" },
+            { name: "Food Delivery Day", category: "logistica", categoryLabel: "Delivery", model: "No encontrado", price: "-", complexity: "desconocida", instagram: "@fooddelivery.day", web: "-" },
+
+            // === OTROS ===
+            { name: "Atomic Kitchens", category: "otros", categoryLabel: "Dark Kitchen/Franquicia", model: "Royalty 8%", price: "$0 entrada + 8% fact.", complexity: "baja", instagram: "@atomic.kitchens", web: "atomickitchens.tech" },
+            { name: "Krauser", category: "otros", categoryLabel: "Desarrollo Software", model: "Servicios a medida", price: "Por proyecto", complexity: "alta", instagram: "@krauser2021k", web: "krauser.com.ar" },
+            { name: "Referencia Gastronómica", category: "otros", categoryLabel: "RRHH/Bolsa trabajo", model: "Suscripción", price: "-", complexity: "baja", instagram: "@referenciagastronomica", web: "referenciagastronomica.com" },
+            { name: "Asuntos Digitales", category: "otros", categoryLabel: "Marketing/Servicios", model: "Servicios", price: "-", complexity: "n/a", instagram: "@asuntosdigitales", web: "-" }
+        ];
+
+        // Gastro software data
+        const gastroSoftware = [
+            { name: "Fudo", implementation: "$0 (con partners)", monthly: "Desde $15.500/mes", clients: "30.000+ negocios", marketShare: "~25%", years: "10+ años", model: "Suscripción nube", web: "fu.do" },
+            { name: "Maxirest", implementation: "Bonificada", monthly: "Desde $11.996+IVA/mes", clients: "20.000+ licencias (ARG)", marketShare: "~25%", years: "30+ años", model: "Licencia + abono", web: "maxirest.com.ar" },
+            { name: "Bistrosoft", implementation: "Cotización", monthly: "$31.500-$56.000+IVA/mes", clients: "25.000+ (8 países)", marketShare: "~20%", years: "10+ años", model: "Suscripción por tiers", web: "bistrosoft.com" },
+            { name: "Thinkion", implementation: "Incluida + capacitación", monthly: "Cotización (por local)", clients: "No publicado", marketShare: "~5%", years: "3+ años", model: "Licencia mensual", web: "thinkion.com.ar" },
+            { name: "Tango Restô", implementation: "Cotización", monthly: "Cotización personalizada", clients: "Parte de Axoft (miles)", marketShare: "~10%", years: "28+ años", model: "Licencia + suscripción", web: "axoft.com/tango" },
+            { name: "Núcleo IT", implementation: "Cotización", monthly: "Cotización personalizada", clients: "No publicado", marketShare: "~5%", years: "10+ años", model: "Licencia + soporte", web: "nucleoit.com.ar" },
+            { name: "Popapp", implementation: "$40 USD (único)", monthly: "$45 USD/mes", clients: "5.000+ (Latam)", marketShare: "~3%", years: "8+ años", model: "Suscripción flat", web: "popapp.io" },
+            { name: "Brûler", implementation: "Pago único", monthly: "Abono mensual (cotiz.)", clients: "No publicado", marketShare: "~2%", years: "31+ años", model: "Licencia + abono", web: "bruler.ar" },
+            { name: "Ambit.la", implementation: "Cotización", monthly: "Cotización personalizada", clients: "No publicado", marketShare: "~2%", years: "5+ años", model: "Suscripción nube", web: "ambit.la" },
+            { name: "EstudioResto", implementation: "Pago único", monthly: "Licencia mensual", clients: "No publicado", marketShare: "~1%", years: "10+ años", model: "Licencia + abono", web: "estudioresto.com.ar" },
+            { name: "Woxi", implementation: "Cotización", monthly: "Cotización personalizada", clients: "No publicado", marketShare: "~1%", years: "5+ años", model: "Suscripción", web: "woxi.digital" },
+            { name: "Last.app", implementation: "Cotización", monthly: "Ver sitio web", clients: "Internacional", marketShare: "~1%", years: "5+ años", model: "Suscripción nube", web: "last.app" }
+        ];
+
+        function getCategoryClass(category) {
+            const classes = {
+                'facturacion': 'cat-facturacion',
+                'gastronomico': 'cat-gastronomico',
+                'erp': 'cat-erp',
+                'ecommerce': 'cat-ecommerce',
+                'logistica': 'cat-logistica',
+                'turnos': 'cat-turnos',
+                'cobranzas': 'cat-cobranzas',
+                'rrhh': 'cat-rrhh',
+                'veterinarias': 'cat-veterinarias',
+                'gimnasios': 'cat-gimnasios',
+                'inmobiliarias': 'cat-inmobiliarias',
+                'talleres': 'cat-talleres',
+                'belleza': 'cat-belleza',
+                'medicos': 'cat-medicos',
+                'contables': 'cat-contables',
+                'kioscos': 'cat-kioscos',
+                'farmacias': 'cat-farmacias',
+                'lavanderia': 'cat-lavanderia',
+                'otros': 'cat-otros'
+            };
+            return classes[category] || 'cat-otros';
+        }
+
+        function getComplexityClass(complexity) {
+            const classes = {
+                'baja': 'complexity-baja',
+                'media': 'complexity-media',
+                'alta': 'complexity-alta'
+            };
+            return classes[complexity] || '';
+        }
+
+        function renderTable(data) {
+            const tbody = document.querySelector('#companiesTable tbody');
+            tbody.innerHTML = data.map(company => `
+                <tr data-category="${company.category}">
+                    <td class="company-name">${company.name}</td>
+                    <td><span class="category-badge ${getCategoryClass(company.category)}">${company.categoryLabel}</span></td>
+                    <td>${company.model}</td>
+                    <td class="price-cell">${company.price}</td>
+                    <td><span class="complexity-badge ${getComplexityClass(company.complexity)}">${company.complexity.toUpperCase()}</span></td>
+                    <td>${company.instagram !== '-' ? `<a href="https://instagram.com/${company.instagram.replace('@', '')}" target="_blank" class="instagram-link">${company.instagram}</a>` : '-'}</td>
+                    <td>${company.web !== '-' ? `<a href="https://${company.web}" target="_blank" class="web-link">${company.web}</a>` : '-'}</td>
+                </tr>
+            `).join('');
+        }
+
+        function renderGastroTable() {
+            const tbody = document.querySelector('#gastroTable tbody');
+            tbody.innerHTML = gastroSoftware.map(sw => `
+                <tr>
+                    <td class="company-name">${sw.name}</td>
+                    <td class="price-cell">${sw.implementation}</td>
+                    <td class="price-cell">${sw.monthly}</td>
+                    <td>${sw.clients}</td>
+                    <td><span class="tier-badge ${sw.marketShare.includes('25') || sw.marketShare.includes('20') ? 'tier-1' : sw.marketShare.includes('10') || sw.marketShare.includes('5') ? 'tier-2' : 'tier-3'}">${sw.marketShare}</span></td>
+                    <td>${sw.years}</td>
+                    <td>${sw.model}</td>
+                    <td><a href="https://${sw.web}" target="_blank" class="web-link">${sw.web}</a></td>
+                </tr>
+            `).join('');
+        }
+
+        // Initial render
+        renderTable(companies);
+        renderGastroTable();
+
+        // Search functionality
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filtered = companies.filter(c =>
+                c.name.toLowerCase().includes(searchTerm) ||
+                c.categoryLabel.toLowerCase().includes(searchTerm) ||
+                c.model.toLowerCase().includes(searchTerm)
+            );
+            renderTable(filtered);
+        });
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.dataset.filter;
+                if (filter === 'all') {
+                    renderTable(companies);
+                } else {
+                    renderTable(companies.filter(c => c.category === filter));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
